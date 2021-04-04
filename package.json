@@ -1,0 +1,40 @@
+{
+  "name": "middleword",
+  "version": "1.0.0",
+  "description": "middelworld api",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ersoftdev/middleworld.git"
+  },
+  "keywords": [
+    "middleword",
+    "api"
+  ],
+  "author": "ersoftdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ersoftdev/middleworld/issues"
+  },
+  "homepage": "https://github.com/ersoftdev/middleworld#readme",
+  "dependencies": {
+    "awilix": "^4.3.3",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.14.1",
+    "fastify-static": "^4.0.1",
+    "lodash": "^4.17.21",
+    "make-promises-safe": "^5.1.0",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
