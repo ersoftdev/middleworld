@@ -30,6 +30,7 @@ module.exports = ({ HeroController, ArtifactController, ReligionController, Worl
     path: '/api/hero/:id',
     handler: HeroController.updateHero
   },
+  /* end hero */
 
   /* artifact */
   {
@@ -62,6 +63,7 @@ module.exports = ({ HeroController, ArtifactController, ReligionController, Worl
     path: '/api/artifact/:id',
     handler: ArtifactController.updateArtifact
   },
+  /* end artifact */
 
   /* religion */
   {
@@ -94,6 +96,7 @@ module.exports = ({ HeroController, ArtifactController, ReligionController, Worl
     path: '/api/religion/:id',
     handler: ReligionController.updateReligion
   },
+  /* end religion */
 
   /* world  */
   {
@@ -126,4 +129,5 @@ module.exports = ({ HeroController, ArtifactController, ReligionController, Worl
     path: '/api/world/:id',
     handler: WorldController.updateWorld
   }
+  /* end world */
 ]
