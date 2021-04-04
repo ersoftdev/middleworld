@@ -5,11 +5,11 @@ Use MiddleWorld API as your grinding stone be creative, submit existing or known
 
 Currently API accept:
 
-Hero
+  **Hero**
 
-Plane or World
+  **Plane or World**
 
-Artifact
+  **Artifact**
 
-Religion
+  **Religion**
 
