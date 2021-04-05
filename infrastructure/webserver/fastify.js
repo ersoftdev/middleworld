@@ -15,5 +15,7 @@ module.exports = ({ routes }) => {
     redirect: true
   })
   
+  server.get('/docs/', (req, res) => { res.sendFile('docs/') })
+
   return server
 }

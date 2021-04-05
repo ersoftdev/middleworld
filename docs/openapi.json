@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "MiddleWord API",
+    "version": "1.0.0",
+    "title": "MiddleWorld Backend",
+    "contact": {
+      "email": "ersoftdev@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "localhost"
+    }
+  ],
+  "paths": {
+    "/api/heroes": {
+      "get": {
+        "tags": [
+          "Heroes"
+        ],
+        "summary": "Retrieve all Heroes",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Hero"
+        ],
+        "summary": "Create a new Hero",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/HeroRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Hero already exists in database"
+          }
+        }
+      }
+    },
+    "/api/hero/{id}": {
+      "get": {
+        "tags": [
+          "Hero"
+        ],
+        "summary": "Find a Hero by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Hero ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Hero"
+        ],
+        "summary": "Update Hero data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Hero ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/HeroRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "CPF already exists in database"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Hero"
+        ],
+        "summary": "Delete a Hero",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Hero ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Hero": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HeroRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "HeroRequest": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "alignment": {
+            "type": "string",
+            "enum": [
+              "Light", "Dark", "Chaos", "Neutral"
+            ]
+          },
+          "active": {
+            "type": "Boolean"
+          }
+        }
+      }
+    }
+  }
+}
