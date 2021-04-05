@@ -148,7 +148,7 @@
             }
           },
           "403": {
-            "description": "CPF already exists in database"
+            "description": "Hero already exists in database"
           }
         }
       },
@@ -162,6 +162,474 @@
             "name": "id",
             "in": "path",
             "description": "Hero ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No response"
+          }
+        }
+      }
+    },
+    "/api/artifacts": {
+      "get": {
+        "tags": [
+          "Artifacts"
+        ],
+        "summary": "Retrieve all Artifacts",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artifact"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Artifact"
+        ],
+        "summary": "Create a new Artifact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ArtifactRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artifact"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Artifact already exists in database"
+          }
+        }
+      }
+    },
+    "/api/artifact/{id}": {
+      "get": {
+        "tags": [
+          "Artifact"
+        ],
+        "summary": "Find Artifact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Artifact ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artifact"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Artifact"
+        ],
+        "summary": "Update Artifact data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Artifact ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ArtifactRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Artifact"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Artifact already exists in database"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Artifact"
+        ],
+        "summary": "Delete an Artifact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Artifact ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No response"
+          }
+        }
+      }
+    },
+    "/api/worlds": {
+      "get": {
+        "tags": [
+          "Worlds"
+        ],
+        "summary": "Retrieve all Worlds",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/World"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "World"
+        ],
+        "summary": "Create a new World",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/WorldRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/World"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "World already exists in database"
+          }
+        }
+      }
+    },
+    "/api/world/{id}": {
+      "get": {
+        "tags": [
+          "World"
+        ],
+        "summary": "Find World by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "World ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/World"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "World"
+        ],
+        "summary": "Update World data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "World ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/WorldRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/World"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "World already exists in database"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "World"
+        ],
+        "summary": "Delete a World",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "World ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No response"
+          }
+        }
+      }
+    },
+    "/api/religions": {
+      "get": {
+        "tags": [
+          "Religions"
+        ],
+        "summary": "Retrieve all Religions",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Religion"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Religion"
+        ],
+        "summary": "Create a new Religion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ReligionRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Religion"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Religion already exists in database"
+          }
+        }
+      }
+    },
+    "/api/religion/{id}": {
+      "get": {
+        "tags": [
+          "Religion"
+        ],
+        "summary": "Find Religion by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Religion ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Religion"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Religion"
+        ],
+        "summary": "Update Religion data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Religion ID stored in database",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ReligionRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Religion"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Religion already exists in database"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Religion"
+        ],
+        "summary": "Delete a Religion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Religion ID stored in database",
             "required": true,
             "schema": {
               "type": "string"
@@ -208,7 +676,103 @@
             ]
           },
           "active": {
-            "type": "Boolean"
+            "type": "boolean"
+          }
+        }
+      },
+      "Artifact": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArtifactRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ArtifactRequest": {
+        "properties": {
+          "legendary, ": {
+            "type": "boolean"
+          },
+          "name, ": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "indesctructible": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Religion": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReligionRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ReligionRequest": {
+        "properties": {
+          "name, ": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "World": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WorldRequest"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "WorldRequest": {
+        "properties": {
+          "name, ": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "Large", "Medium", "Small"
+            ]
+          },
+          "active": {
+            "type": "boolean"
           }
         }
       }
