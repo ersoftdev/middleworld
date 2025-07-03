@@ -14,5 +14,6 @@ Currently API accept:
 
   **Religion**
 
-
 **Needs to add logger and adjust the routes file**
+
+**I wasn't able to continue this but pretty much a good reference material for beginners**
